@@ -43,6 +43,10 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> {
         adapter.setItemClickListener(this::openDescription);
         adapter.setOnLongItemClickListener(id -> CustomAlertDialog.showDialog(requireContext(), () -> storage.deletePublish(id, o -> Toast.makeText(requireContext(), o.toString(), Toast.LENGTH_SHORT).show())));
         ui.addBtn.setOnClickListener(v -> openForm());
+        ui.mySwipeRefreshLayout.setOnRefreshListener(() -> {
+            getData();
+            ui.mySwipeRefreshLayout.setRefreshing(false);
+        });
     }
 
     private void openDescription(Integer id) {
