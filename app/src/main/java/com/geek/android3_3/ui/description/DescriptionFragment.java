@@ -41,6 +41,7 @@ public class DescriptionFragment extends BaseFragment<FragmentDescriptionBinding
                     .getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.container, formFragment)
+                    .addToBackStack(null)
                     .commit();
         });
     }

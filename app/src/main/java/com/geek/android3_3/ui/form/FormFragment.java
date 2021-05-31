@@ -49,7 +49,11 @@ public class FormFragment extends BaseFragment<FragmentFormBinding> {
                     model = new Publish(title, content, Integer.valueOf(userId), Integer.valueOf(group));
                     storage.createPublish(model);
                 }
-                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
+                requireActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, new HomeFragment())
+                        .addToBackStack(null)
+                        .commit();
             } else {
                 ui.contentEdt.setHintTextColor(Color.RED);
                 ui.titleEdt.setHintTextColor(Color.RED);

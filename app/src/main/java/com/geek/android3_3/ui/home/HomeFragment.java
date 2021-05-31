@@ -79,6 +79,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> {
                 .getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.container, new FormFragment())
+                .addToBackStack(null)
                 .commit();
 
     }
